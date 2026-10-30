@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster QR — Reglamento Interno de Trabajo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.poster{width:210mm;max-width:100%;background:#fff;border:3px solid #1a1a2e;border-radius:16px;padding:40px 36px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.logo-top{display:flex;align-items:center;gap:12px;justify-content:center}
+.logo-circle{width:52px;height:52px;background:#e8456e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff}
+.empresa{text-align:left}
+.empresa h1{font-size:19px;font-weight:800;color:#1a1a2e;line-height:1.2}
+.empresa p{font-size:12px;color:#888;margin-top:2px}
+.divider{width:80%;height:2px;background:#e8456e;border-radius:2px}
+.doc-title{font-size:26px;font-weight:900;color:#1a1a2e;line-height:1.2}
+.doc-subtitle{font-size:14px;color:#555;margin-top:-8px}
+.qr-box{background:#f8f8f8;border:2px dashed #ddd;border-radius:12px;padding:20px;display:inline-block}
+.qr-box img{display:block;width:220px;height:220px}
+.instruccion{font-size:17px;font-weight:700;color:#1a1a2e}
+.instruccion span{color:#e8456e}
+.steps{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:8px;font-size:14px;color:#444}
+.step-num{width:26px;height:26px;background:#1a1a2e;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.url-box{background:#f0f0f0;border-radius:8px;padding:8px 16px;font-size:12px;color:#666;font-family:monospace;word-break:break-all}
+.footer-note{font-size:11px;color:#aaa;font-style:italic}
+@media print{
+  body{padding:0;background:#fff}
+  .poster{border:2px solid #1a1a2e;border-radius:0;width:100%;max-width:none;min-height:100vh}
+}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="logo-top">
+    <div class="logo-circle">L</div>
+    <div class="empresa">
+      <h1>Inversiones Agropecuarias<br>LOM SAS</h1>
+      <p>Lomarosa · Facatativá, Cundinamarca</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="doc-title">📋 Reglamento Interno<br>de Trabajo</div>
+  <div class="doc-subtitle">Disponible para consulta de todos los trabajadores</div>
+
+  <div class="instruccion">Escanea el código QR<br><span>con la cámara de tu celular</span></div>
+
+  <div class="qr-box">
+    <img id="qr-img" src="" alt="QR Code">
+  </div>
+
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div>Abre la cámara de tu celular</div>
+    <div class="step"><div class="step-num">2</div>Apunta al código QR</div>
+    <div class="step"><div class="step-num">3</div>Toca el enlace que aparece</div>
+  </div>
+
+  <div class="url-box" id="url-display">Cargando URL...</div>
+
+  <div class="footer-note">Versión vigente · Actualizado 2026 · Para imprimir: Ctrl+P</div>
+</div>
+
+<script>
+const URL_DOC = 'https://samuel08102003.github.io/rit-lom/';
+document.getElementById('url-display').textContent = URL_DOC;
+document.getElementById('qr-img').src =
+  'https://api.qrserver.com/v1/create-qr-code/?size=220x220&color=1a1a2e&bgcolor=f8f8f8&data=' +
+  encodeURIComponent(URL_DOC);
+</script>
+</body>
+</html>
